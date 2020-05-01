@@ -17,7 +17,7 @@ class HomePage extends State<Home> {
   List<Food> listFood = [];
 
   @override
-  void initState() {
+  initState() {
     super.initState();
     fetchServices();
     fetchFood();
@@ -50,9 +50,29 @@ class HomePage extends State<Home> {
         padding: EdgeInsets.fromLTRB(16, 16, 0, 16),
         child:
             Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          Text(
-            "GoFood",
-            style: TextStyle(fontWeight: FontWeight.bold),
+          Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColor.grey200, width: 1),
+                  borderRadius: BorderRadius.circular(100),
+                  color: AppColor.menuFood,
+                ),
+                padding: EdgeInsets.all(6),
+                child: Icon(
+                  Icons.restaurant,
+                  color: Colors.white,
+                  size: 10,
+                ),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                "GoFood",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
           Padding(padding: EdgeInsets.only(top: 8)),
           Text(
@@ -244,7 +264,7 @@ class HomePage extends State<Home> {
     );
   }
 
-  void fetchServices() {
+  fetchServices() {
     listGojekServices.add(GojekServices(
         color: AppColor.menuRide,
         image: Icons.directions_bike,
@@ -273,7 +293,7 @@ class HomePage extends State<Home> {
         color: AppColor.menuTix, image: Icons.local_play, title: "GO-TIX"));
   }
 
-  void fetchFood() {
+  fetchFood() {
     listFood
         .add(Food(title: "Steak Andakar", image: "assets/images/food_1.jpg"));
     listFood

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gojekreplicate/app_color.dart';
 import 'package:gojekreplicate/launcher.dart';
 
-void main() {
+main() {
   runApp(MyApp());
 }
 

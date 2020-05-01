@@ -15,7 +15,7 @@ class Launcher extends StatefulWidget{
 class LauncherPage extends State<Launcher>{
 
   @override
-  void initState() {
+  initState() {
     super.initState();
     startLaunching(context);
   }
