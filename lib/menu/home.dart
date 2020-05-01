@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gojekreplicate/app_color.dart';
 import 'package:gojekreplicate/appbar.dart';
+import 'package:gojekreplicate/gojek_services.dart';
 
 class Home extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() {
     return HomePage();
@@ -11,6 +13,64 @@ class Home extends StatefulWidget {
 }
 
 class HomePage extends State<Home> {
+
+  List<GojekServices> listGojekServices = [];
+
+  @override
+  void initState() {
+    super.initState();
+    listGojekServices.add(
+        GojekServices(color: AppColor.menuRide,
+            image: Icons.directions_bike,
+            title: "GoRide")
+    );
+    listGojekServices.add(
+        GojekServices(color: AppColor.menuCar,
+            image: Icons.local_car_wash,
+            title: "GoCar")
+    );
+    listGojekServices.add(
+        GojekServices(color: AppColor.menuFood,
+            image: Icons.restaurant,
+            title: "GoFood")
+    );
+    listGojekServices.add(
+        GojekServices(color: AppColor.menuSend,
+            image: Icons.next_week,
+            title: "GoSend")
+    );
+    listGojekServices.add(
+        GojekServices(color: AppColor.menuDeals,
+            image: Icons.local_offer,
+            title: "GoDeals")
+    );
+    listGojekServices.add(
+        GojekServices(color: AppColor.menuPulsa,
+            image: Icons.phonelink_ring,
+            title: "GoPulsa")
+    );
+    listGojekServices.add(
+        GojekServices(color: AppColor.menuShop,
+            image: Icons.shopping_basket,
+            title: "GoShop")
+    );
+    listGojekServices.add(
+        GojekServices(color: AppColor.menuOther,
+            image: Icons.apps,
+            title: "Lainnya")
+    );
+    listGojekServices.add(
+        GojekServices(color: AppColor.menuMart,
+            image: Icons.shopping_cart,
+            title: "GoMart")
+    );
+    listGojekServices.add(
+        GojekServices(color: AppColor.menuTix,
+            image: Icons.local_play,
+            title: "GO-TIX")
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,51 +85,98 @@ class HomePage extends State<Home> {
               color: Colors.white,
               child: Column(
                 children: [
-                  gopayMenu()
+                  gopayMenu(),
+                  serviceMenu(),
                 ],
               ),
             )
           ],
         ),
       ),
-      );
+    );
   }
 
-  Widget gopayMenu(){
+  Widget itemServiceMenu(GojekServices gojekServices) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: AppColor.grey200, width: 1),
+              borderRadius: BorderRadius.circular(100),
+              color: gojekServices.color,
+            ),
+            padding: EdgeInsets.all(6),
+            child: Icon(
+              gojekServices.image,
+              color: Colors.white,
+              size: 26,
+            ),
+          ),
+          Padding(padding: EdgeInsets.only(top: 6)),
+          Text(gojekServices.title, style: TextStyle(fontSize: 14),)
+        ],
+      ),
+    );
+  }
+
+  Widget serviceMenu() {
+    return SizedBox(
+      width: double.infinity,
+      height: 220,
+      child: Container(
+        margin: EdgeInsets.only(top: 8, bottom: 8),
+        child: GridView.builder(
+            physics: ClampingScrollPhysics(),
+            itemCount: 8,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4),
+            itemBuilder: (context, position) {
+              return itemServiceMenu(listGojekServices[position]);
+            }
+        ),
+      ),
+    );
+  }
+
+  Widget gopayMenu() {
     return Container(
       height: 120,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color(0xff3164bd),
-            Color(0xff295cb5)
-          ]
-        ),
-        borderRadius: BorderRadius.all(Radius.circular(3))
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(0xff3164bd),
+                Color(0xff295cb5)
+              ]
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(3))
       ),
       child: Column(
         children: [
           Container(
             padding: EdgeInsets.all(12),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0xff3164bd),
-                    Color(0xff295cb5)
-                  ]
-              ),
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(3), topRight: Radius.circular(3))
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xff3164bd),
+                      Color(0xff295cb5)
+                    ]
+                ),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(3), topRight: Radius.circular(3))
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    Icon(Icons.account_balance_wallet, color: Colors.white, size: 16,),
+                    Icon(Icons.account_balance_wallet, color: Colors.white,
+                      size: 16,),
                     SizedBox(width: 2,),
                     Text(
                       "gopay",
@@ -84,9 +191,9 @@ class HomePage extends State<Home> {
                 Text(
                   "Rp. 120.000",
                   style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold
+                      fontSize: 14,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold
                   ),
                 )
               ],

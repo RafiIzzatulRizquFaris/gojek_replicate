@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gojekreplicate/app_color.dart';
 
 class CustomAppBar extends AppBar {
   CustomAppBar()
@@ -23,10 +24,10 @@ class CustomAppBar extends AppBar {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     border: Border(
-                        top: BorderSide(color: Colors.grey),
-                        right: BorderSide(color: Colors.grey),
-                        bottom: BorderSide(color: Colors.grey),
-                        left: BorderSide(color: Colors.grey))),
+                        top: BorderSide(color: AppColor.grey),
+                        right: BorderSide(color: AppColor.grey),
+                        bottom: BorderSide(color: AppColor.grey),
+                        left: BorderSide(color: AppColor.grey))),
                 child: Row(
                   children: [
                     Icon(
