@@ -67,13 +67,19 @@ class HomePage extends State<Home> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "GOPAY",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold
-                  ),
+                Row(
+                  children: [
+                    Icon(Icons.account_balance_wallet, color: Colors.white, size: 16,),
+                    SizedBox(width: 2,),
+                    Text(
+                      "gopay",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ],
                 ),
                 Text(
                   "Rp. 120.000",
