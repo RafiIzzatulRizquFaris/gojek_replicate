@@ -10,7 +10,7 @@ class Order extends StatefulWidget{
 
 class OrderPage extends State<Order>{
   @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
     return Center(
       child: Text("Order"),
     );

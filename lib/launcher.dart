@@ -21,7 +21,7 @@ class LauncherPage extends State<Launcher>{
   }
 
   @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Image.asset("assets/images/img_gojek_logo.png", height: 200, width: 400,),

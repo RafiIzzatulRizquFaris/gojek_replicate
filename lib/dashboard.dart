@@ -20,7 +20,7 @@ class DashboardPage extends State<Dashboard>{
   int currentIndex = 0;
 
   @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
           body: page[currentIndex],

@@ -10,7 +10,7 @@ class Chat extends StatefulWidget{
 
 class ChatPage extends State<Chat>{
   @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
     return Center(
       child: Text("Chat"),
     );

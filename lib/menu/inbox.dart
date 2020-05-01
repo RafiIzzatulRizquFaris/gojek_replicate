@@ -10,7 +10,7 @@ class Inbox extends StatefulWidget{
 
 class InboxPage extends State<Inbox>{
   @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
     return Center(
       child: Text("Inbox"),
     );

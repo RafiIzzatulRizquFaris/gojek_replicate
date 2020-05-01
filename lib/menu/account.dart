@@ -10,7 +10,7 @@ class Account extends StatefulWidget{
 
 class AccountPage extends State<Account>{
   @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
     return Center(
       child: Text("Account"),
     );
