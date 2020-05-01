@@ -41,7 +41,6 @@ class CustomAppBar extends AppBar {
                   ],
                 ),
               ),
-//              child: Image.asset("assets/images/img_gojek_logo.png", height: 50, width: 100,),
             ),
           ),
           SizedBox(
